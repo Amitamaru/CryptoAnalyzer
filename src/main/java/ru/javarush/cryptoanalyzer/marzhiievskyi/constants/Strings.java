@@ -8,9 +8,9 @@ public class Strings {
     private static final String SYMBOLS = ".,/?'\"[];:!@#$%^&*() ";
 
     // all symbols what we are going to use for crypto analyzer
-    public static final String ALL_SYMBOLS =
+    private static final String ALL_SYMBOLS =
             ENG_ALPHABET + ENG_ALPHABET.toUpperCase()
             + RUS_ALPHABET + RUS_ALPHABET.toUpperCase() + UKR_ALPHABET
             + UKR_ALPHABET.toUpperCase() + NUMERIC + SYMBOLS;
-
+    public static final char[] ALL_CHARS = ALL_SYMBOLS.toCharArray();
 }

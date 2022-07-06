@@ -1,6 +1,7 @@
 package ru.javarush.cryptoanalyzer.marzhiievskyi;
 
 import ru.javarush.cryptoanalyzer.marzhiievskyi.app.Application;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.controller.MainController;
 
 public class Run {
