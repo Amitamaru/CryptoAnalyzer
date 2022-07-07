@@ -4,7 +4,7 @@ public class Strings {
     private static final String ENG_ALPHABET = "qwertyuiopasdfghjklzxcvbnm";
     private static final String CYRILIC_ALPHABET = "йцукенгшщзхъфывапролджэячсмитьбюёії";
     private static final String NUMERIC = "0123456789";
-    private static final String SYMBOLS = ".,/?'\"[];:!@#$%^&*() \n";
+    private static final String SYMBOLS = ".,/?'\"[];:!@#$%^&*() -";
 
     public static final String ALL_SYMBOLS =
             ENG_ALPHABET + ENG_ALPHABET.toUpperCase()
