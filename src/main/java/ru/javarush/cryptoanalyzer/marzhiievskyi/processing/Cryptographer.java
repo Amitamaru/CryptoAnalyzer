@@ -1,4 +1,4 @@
-package ru.javarush.cryptoanalyzer.marzhiievskyi;
+package ru.javarush.cryptoanalyzer.marzhiievskyi.processing;
 
 import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
 import java.util.HashMap;
@@ -60,7 +60,7 @@ public class Cryptographer {
             for (String s : example) {
                 if (str.contains(s)) {
                     result = tmpResult;
-                    System.out.println(elem.getKey()+ "<----");//   <- delete after finish
+                    System.out.println("The key is: " + elem.getKey());
                     break;
                 }
             }

@@ -6,16 +6,9 @@ import java.nio.file.Path;
 
 
 public class InputOutput {
-    private final String inputParameter;
-    private final String outputParameter;
 
-    public InputOutput(String inputParameter, String outputParameter) {
-        this.inputParameter = inputParameter;
-        this.outputParameter = outputParameter;
-    }
-
-    public String gettingTextFromFIle() throws IOException {
-        Path inputPath = Path.of(inputParameter);
+    public static String gettingTextFromFIle(String inputFile) throws IOException {
+        Path inputPath = Path.of(inputFile);
         String readyMessage = "";
         if (Files.exists(inputPath)) {
             readyMessage = Files.readString(inputPath);
@@ -23,8 +16,8 @@ public class InputOutput {
         return readyMessage;
     }
 
-    public void writingMessageToFile(String outputMessage) throws IOException {
-        Path outputPath = Path.of(outputParameter);
+    public static void writingMessageToFile(String outputFile, String outputMessage) throws IOException {
+        Path outputPath = Path.of(outputFile);
         if (Files.notExists(outputPath)) {
             Files.createFile(outputPath);
         }
