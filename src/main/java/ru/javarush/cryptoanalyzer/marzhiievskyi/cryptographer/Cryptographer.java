@@ -1,4 +1,4 @@
-package ru.javarush.cryptoanalyzer.marzhiievskyi.processing;
+package ru.javarush.cryptoanalyzer.marzhiievskyi.cryptographer;
 
 import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Cryptographer {
-    private static final String ALPHABET = Strings.ALL_SYMBOLS;
+    private static final String ALPHABET = null;
 
 
     public static String encryption(String message, int keyShift) {
