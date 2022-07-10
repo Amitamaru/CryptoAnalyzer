@@ -41,7 +41,7 @@ public class Decryption implements Action{
 
 
         } catch (IOException e) {
-            throw new AppException("IO Err ", e);
+            throw new AppException("IO Exception ", e);
         }
     }
 }

@@ -7,8 +7,7 @@ import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.AppException;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.util.PathFinder;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class BruteForce implements Action {
     @Override
@@ -19,19 +18,26 @@ public class BruteForce implements Action {
         String reviewTextFile = parameters[2];
         int keyShift = 1;
 
-        List<Character> textCharsList = new ArrayList<>();
+        List<Character> encryptedCharsList = new ArrayList<>();
 
+        Result result = new Result(ResultCode.ERROR, "Decryption failed");
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(PathFinder.getRoot() + inputTextFile));
-             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(PathFinder.getRoot() + decryptedTextFile))) {
+             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(PathFinder.getRoot() + decryptedTextFile));
+             BufferedReader bufferedReaderDict = new BufferedReader(new FileReader(PathFinder.getRoot() + reviewTextFile))) {
 
             while (bufferedReader.ready()) {
-                textCharsList.add((char) bufferedReader.read());
+                encryptedCharsList.add((char) bufferedReader.read());
             }
+            String dict = "";
+            while (bufferedReaderDict.ready()) {
+                dict += bufferedReaderDict.readLine();
+            }
+            List<String> dictionary = Arrays.stream(dict.split(" ")).toList();
 
-
+            Map<Integer, String> mapOfResults = new HashMap<>(); //Положим в мапу все возможные варианты (сдвиг, текст);
             while (keyShift < Strings.ALPHABET_LIST.size()) {
                 List<Character> oneOfListsChars = new ArrayList<>();
-                for (Character character : textCharsList) {
+                for (Character character : encryptedCharsList) {
                     int charPos = Strings.ALPHABET_LIST.indexOf(character);
                     int keyValue = (charPos - keyShift) % Strings.ALPHABET_LIST.size();
                     if (keyValue < 0) {
@@ -41,16 +47,35 @@ public class BruteForce implements Action {
                     oneOfListsChars.add(replChar);
                 }
 
+                String oneOfResultString = "";
+                for (Character ch :
+                        oneOfListsChars) {
+                    oneOfResultString = oneOfResultString + ch;
+                }
+                mapOfResults.put(keyShift, oneOfResultString);
                 keyShift++;
             }
-            //TODO finish bruteforce decryption
-            return new Result(ResultCode.OK, "Decryption is OK");
+            for (var value : mapOfResults.entrySet()) {
+                String[] s = value.getValue().split(" ");
+                int count = 0;
+                for (String item : s) {
+
+                    if (dictionary.contains(item)) {
+                        count++;
+                    }
+                    if (count > 3) {
+                        bufferedWriter.write(value.getValue());
+                        result = new Result(ResultCode.OK, "Decryption has bean finished. The KEY should be: " + value.getKey());
+                        break;
+                    }
+                }
+            }
 
 
 
         } catch (IOException e) {
-            throw new AppException("IO Err ", e);
+            throw new AppException("IO Exception ", e);
         }
-
+        return result;
     }
 }

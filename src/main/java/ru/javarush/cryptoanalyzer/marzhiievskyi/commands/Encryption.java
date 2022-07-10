@@ -18,7 +18,6 @@ public class Encryption implements Action {
         String encryptedTextFile = parameters[1];
         int keyShift = Integer.parseInt(parameters[2]);
 
-
         List<Character> textCharsList = new ArrayList<>();
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(PathFinder.getRoot() + inputTextFile));
@@ -40,9 +39,8 @@ public class Encryption implements Action {
 
 
         } catch (IOException e) {
-            throw new AppException("IO Err ", e);
+            throw new AppException("IO Exception", e);
         }
-
 
 
     }
