@@ -20,4 +20,6 @@ public class Strings {
             ALPHABET_LIST.add(ch);
         }
     }
+
+    public static final String WELCOME_MESSAGE = "Welcome to crypto analyzer. Please enter number of command or enter exit to close program";
 }

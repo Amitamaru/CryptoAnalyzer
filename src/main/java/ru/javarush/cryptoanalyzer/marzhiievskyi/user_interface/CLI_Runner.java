@@ -1,6 +1,7 @@
 package ru.javarush.cryptoanalyzer.marzhiievskyi.user_interface;
 
 import ru.javarush.cryptoanalyzer.marzhiievskyi.commandSelector.AppOfCommands;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.controller.MainController;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;
 
@@ -13,12 +14,12 @@ public class CLI_Runner {
         String[] parameters = new  String[4];
 
         Scanner console = new Scanner(System.in);
-        System.out.println("Welcome to crypto analyzer. Please enter number of command or enter exit to close program");
+        System.out.println(Strings.WELCOME_MESSAGE);
         String command = console.next();
 
         parameters[0] = command;
 
-
+        //TODO modify view console!!!
             if ("encrypt".equalsIgnoreCase(command)) {
                 System.out.println("Enter input file with text");
                 parameters[1] = console.next();
