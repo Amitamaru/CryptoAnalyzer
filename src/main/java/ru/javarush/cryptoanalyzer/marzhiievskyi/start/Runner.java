@@ -11,11 +11,13 @@ public class Runner {
         MainController mainController = new MainController();
         AppOfCommands commandSelector = new AppOfCommands(mainController);
         Result result;
+
         if (args.length == 4) {
             result = commandSelector.run(args);
         } else {
             result = commandSelector.run(CL_Interface.gettingUserParametersWithCL());
         }
+
         System.out.println(result);
     }
 }
