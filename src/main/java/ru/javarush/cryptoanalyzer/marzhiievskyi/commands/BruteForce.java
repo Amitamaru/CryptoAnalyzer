@@ -28,11 +28,11 @@ public class BruteForce implements Action {
             while (bufferedReader.ready()) {
                 encryptedCharsList.add((char) bufferedReader.read());
             }
-            String dict = "";
+            StringBuilder dict = new StringBuilder();
             while (bufferedReaderDict.ready()) {
-                dict += bufferedReaderDict.readLine();
+                dict.append(bufferedReaderDict.readLine());
             }
-            List<String> dictionary = Arrays.stream(dict.split(" ")).toList();
+            List<String> dictionary = Arrays.stream(dict.toString().split(" ")).toList();
 
             Map<Integer, String> mapOfResults = new HashMap<>(); //Положим в мапу все возможные варианты (сдвиг, текст);
             while (keyShift < Strings.ALPHABET_LIST.size()) {
@@ -47,12 +47,12 @@ public class BruteForce implements Action {
                     oneOfListsChars.add(replChar);
                 }
 
-                String oneOfResultString = "";
+                StringBuilder oneOfResultString = new StringBuilder();
                 for (Character ch :
                         oneOfListsChars) {
-                    oneOfResultString = oneOfResultString + ch;
+                    oneOfResultString.append(ch);
                 }
-                mapOfResults.put(keyShift, oneOfResultString);
+                mapOfResults.put(keyShift, oneOfResultString.toString());
                 keyShift++;
             }
             for (var value : mapOfResults.entrySet()) {
@@ -70,9 +70,6 @@ public class BruteForce implements Action {
                     }
                 }
             }
-
-
-
         } catch (IOException e) {
             throw new AppException("IO Exception ", e);
         }

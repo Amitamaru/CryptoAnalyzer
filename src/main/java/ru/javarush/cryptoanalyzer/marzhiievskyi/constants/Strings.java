@@ -21,5 +21,18 @@ public class Strings {
         }
     }
 
-    public static final String WELCOME_MESSAGE = "Welcome to crypto analyzer. Please enter number of command or enter exit to close program";
+    public static final String WELCOME_MESSAGE = "\nWelcome to crypto analyzer. Please enter number of command or enter exit to close program";
+    public static final String CHOSE_COMMAND = """
+
+            Please select command to do:\s
+            To encode enter 1
+            To decode enter 2
+            To decode with Brute Force enter 3""";
+    public static final String ENTER_KEY_SHIFT = "Enter the key to ";
+    public static final String ENTER_ENCRYPTED_TEXT_FILE = "Enter input file with encrypted text";
+    public static final String ENTER_INPUT_FILE_TEXT = "Enter input file with text";
+    public static final String ENTER_OUT_FILE_NAME = "Enter output name file";
+    public static final String ENTER_INPUT_DICTIONARY_TEXT_FILE = "Enter example text file to analyze";
+
+    public static final String GOOD_BYE = "Good Bye!";
 }
