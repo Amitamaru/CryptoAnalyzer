@@ -12,10 +12,10 @@ public class Runner {
         AppOfCommands commandSelector = new AppOfCommands(mainController);
         Result result;
 
-        if (args.length == 4) {
-            result = commandSelector.run(args);
-        } else {
+        if (args.length == 0) {
             result = commandSelector.run(CL_Interface.gettingUserParametersWithCL());
+        } else {
+            result = commandSelector.run(args);
         }
 
         System.out.println(result);

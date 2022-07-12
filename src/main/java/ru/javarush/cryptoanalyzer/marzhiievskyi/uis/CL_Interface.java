@@ -1,7 +1,12 @@
 package ru.javarush.cryptoanalyzer.marzhiievskyi.uis;
 
 import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.ResultCode;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.AppException;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.ArgsException;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CL_Interface {
@@ -20,36 +25,37 @@ public class CL_Interface {
             System.exit(0);
         }
 
-        int commandInt = Integer.parseInt(command);
-        switch (commandInt) {
-            case 1 -> {
-                parameters[0] = "encrypt";
-                System.out.println(Strings.ENTER_INPUT_FILE_TEXT);
-                parameters[1] = console.next();
-                System.out.println(Strings.ENTER_OUT_FILE_NAME);
-                parameters[2] = console.next();
-                System.out.println(Strings.ENTER_KEY_SHIFT);
-                parameters[3] = console.next();
+
+            switch (Integer.parseInt(command)) {
+                case 1 -> {
+                    parameters[0] = "encrypt";
+                    System.out.println(Strings.ENTER_INPUT_FILE_TEXT);
+                    parameters[1] = console.next();
+                    System.out.println(Strings.ENTER_OUT_FILE_NAME);
+                    parameters[2] = console.next();
+                    System.out.println(Strings.ENTER_KEY_SHIFT);
+                    parameters[3] = console.next();
+                }
+                case 2 -> {
+                    parameters[0] = "decrypt";
+                    System.out.println(Strings.ENTER_ENCRYPTED_TEXT_FILE);
+                    parameters[1] = console.next();
+                    System.out.println(Strings.ENTER_OUT_FILE_NAME);
+                    parameters[2] = console.next();
+                    System.out.println(Strings.ENTER_KEY_SHIFT);
+                    parameters[3] = console.next();
+                }
+                case 3 -> {
+                    parameters[0] = "bruteforce";
+                    System.out.println(Strings.ENTER_ENCRYPTED_TEXT_FILE);
+                    parameters[1] = console.next();
+                    System.out.println(Strings.ENTER_OUT_FILE_NAME);
+                    parameters[2] = console.next();
+                    System.out.println(Strings.ENTER_INPUT_DICTIONARY_TEXT_FILE);
+                    parameters[3] = console.next();
+                }
             }
-            case 2 -> {
-                parameters[0] = "decrypt";
-                System.out.println(Strings.ENTER_ENCRYPTED_TEXT_FILE);
-                parameters[1] = console.next();
-                System.out.println(Strings.ENTER_OUT_FILE_NAME);
-                parameters[2] = console.next();
-                System.out.println(Strings.ENTER_KEY_SHIFT);
-                parameters[3] = console.next();
-            }
-            case 3 -> {
-                parameters[0] = "bruteforce";
-                System.out.println(Strings.ENTER_ENCRYPTED_TEXT_FILE);
-                parameters[1] = console.next();
-                System.out.println(Strings.ENTER_OUT_FILE_NAME);
-                parameters[2] = console.next();
-                System.out.println(Strings.ENTER_INPUT_DICTIONARY_TEXT_FILE);
-                parameters[3] = console.next();
-            }
-        }
+
         return parameters;
     }
 }

@@ -73,6 +73,7 @@ public class BruteForce implements Action {
             }
             // запишем в файл тот вариант расшифровки, у которого наибольшее число совпадающих слов со словарем
             // номер индекса + 1 совпадает с keyShift
+            // TODO найти совпадения с помощью регекс (. ) (, но) (. [А-ЯЁ])
             int indexOfKeyMaxMatchesWords = countedMatches.indexOf(Collections.max(countedMatches)) + 1; // + 1 так как ключи начинаются с 1 а не 0
             for (var value :
                     mapOfResults.entrySet()) {
