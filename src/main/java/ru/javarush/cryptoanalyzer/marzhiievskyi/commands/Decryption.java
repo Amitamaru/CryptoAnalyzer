@@ -37,7 +37,7 @@ public class Decryption implements Action{
                 bufferedWriter.write(replChar);
             }
 
-            return new Result(ResultCode.OK, "Расшифрование завершено");
+            return new Result(ResultCode.OK, "Расшифрование завершено. \nПуть к результату: " + PathFinder.getRoot() + decryptedTextFile);
 
 
         } catch (IOException e) {

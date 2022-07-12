@@ -59,7 +59,7 @@ public class BruteForce implements Action {
                 keyShift++;
             }
 
-            // Ищем максимальное количество совпадающих слов в каждом из результатов с примером
+            // Ищем максимальное количество совпадающих слов в каждом из результатов, с примером
             List<Integer> countedMatches = new ArrayList<>();
             for (var value : mapOfResults.entrySet()) {
                 String[] s = value.getValue().split(" ");
@@ -78,7 +78,8 @@ public class BruteForce implements Action {
                     mapOfResults.entrySet()) {
                 if (indexOfKeyMaxMatchesWords == value.getKey()) {
                     bufferedWriter.write(value.getValue());
-                    result = new Result(ResultCode.OK, "Расшифрование закончено удачно. Ключ шифрования должен быть: " + value.getKey());
+                    result = new Result(ResultCode.OK, "Расшифрование закончено удачно. Ключ шифрования должен быть: " + value.getKey() +
+                            "\nПуть к результату: " + PathFinder.getRoot() + decryptedTextFile);
                 }
             }
         } catch (IOException e) {

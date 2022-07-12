@@ -36,7 +36,7 @@ public class Encryption implements Action {
                 bufferedWriter.write(replChar);
             }
 
-            return new Result(ResultCode.OK, "Шифрование завершено");
+            return new Result(ResultCode.OK, "Шифрование завершено. \nПуть к результату: " + PathFinder.getRoot() + encryptedTextFile);
 
 
         } catch (IOException e) {
