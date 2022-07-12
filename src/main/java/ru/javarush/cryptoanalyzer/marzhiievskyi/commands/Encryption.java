@@ -4,6 +4,7 @@ import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.ResultCode;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.AppException;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.KeyShiftException;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.util.PathFinder;
 
 import java.io.*;
@@ -35,11 +36,13 @@ public class Encryption implements Action {
                 bufferedWriter.write(replChar);
             }
 
-            return new Result(ResultCode.OK, "Encryption is OK");
+            return new Result(ResultCode.OK, "Шифрование завершено");
 
 
         } catch (IOException e) {
-            throw new AppException("IO Exception", e);
+            throw new AppException(Strings.IO_EXCEPTION_MSG, e);
+        } catch (IndexOutOfBoundsException e) {
+            throw new KeyShiftException(Strings.KEY_EXCEPTION_MSG, e);
         }
 
 

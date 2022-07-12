@@ -37,11 +37,11 @@ public class Decryption implements Action{
                 bufferedWriter.write(replChar);
             }
 
-            return new Result(ResultCode.OK, "Decryption is OK");
+            return new Result(ResultCode.OK, "Расшифрование завершено");
 
 
         } catch (IOException e) {
-            throw new AppException("IO Exception ", e);
+            throw new AppException(Strings.IO_EXCEPTION_MSG, e);
         }
     }
 }

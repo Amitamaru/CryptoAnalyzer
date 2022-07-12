@@ -5,6 +5,7 @@ import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.ResultCode;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.AppException;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.ArgsException;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.KeyShiftException;
 
 
 public class MainController {
@@ -12,9 +13,8 @@ public class MainController {
         try {
             Action action = ActionsContainer.find(command);
             return action.execute(parameters);
-        } catch (AppException | ArgsException exception) {
-            System.out.println(exception.getMessage());
-            return new Result(ResultCode.ERROR, "Failed");
+        } catch (AppException | ArgsException | KeyShiftException exception) {
+            return new Result(ResultCode.ERROR, "Неудача. " + exception.getMessage());
         }
     }
 

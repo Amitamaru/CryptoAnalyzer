@@ -1,6 +1,7 @@
 package ru.javarush.cryptoanalyzer.marzhiievskyi.controller;
 
 import ru.javarush.cryptoanalyzer.marzhiievskyi.commands.*;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.ArgsException;
 
 public enum ActionsContainer {
@@ -20,7 +21,7 @@ public enum ActionsContainer {
         try {
             return ActionsContainer.valueOf(command.toUpperCase()).action;
         } catch (IllegalArgumentException e) {
-            throw new ArgsException("Wrong args");
+            throw new ArgsException(Strings.ARGS_EXCEPTION_MSG);
         }
     }
 }

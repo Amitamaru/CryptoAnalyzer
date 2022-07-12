@@ -28,7 +28,7 @@ public class CL_Interface {
                 parameters[1] = console.next();
                 System.out.println(Strings.ENTER_OUT_FILE_NAME);
                 parameters[2] = console.next();
-                System.out.println(Strings.ENTER_KEY_SHIFT + parameters[0]);
+                System.out.println(Strings.ENTER_KEY_SHIFT);
                 parameters[3] = console.next();
             }
             case 2 -> {
@@ -37,7 +37,7 @@ public class CL_Interface {
                 parameters[1] = console.next();
                 System.out.println(Strings.ENTER_OUT_FILE_NAME);
                 parameters[2] = console.next();
-                System.out.println(Strings.ENTER_KEY_SHIFT + parameters[0]);
+                System.out.println(Strings.ENTER_KEY_SHIFT);
                 parameters[3] = console.next();
             }
             case 3 -> {
