@@ -25,15 +25,15 @@ public class Strings {
     public static final String CHOSE_COMMAND = """
 
             Выберете действие :\s
-            Чтобы зашифровать текст из файле введите 1
-            Чтобы расшифровать текст из зашифрованного введите 2
-            Чтобы расшифровать методом Brute Force введите 3""";
+            Введите 1 чтобы зашифровать текст из файле
+            Введите 2 чтобы расшифровать текст из зашифрованного
+            Введите 3 чтобы расшифровать методом Brute Force
+            Введите 4 чтобы попробовать расшифровать статистическим анализом""";
     public static final String ENTER_KEY_SHIFT = "Введите цифру-ключ шифрования";
     public static final String ENTER_ENCRYPTED_TEXT_FILE = "Введите имя файла, на котором зашифрован текст";
     public static final String ENTER_INPUT_FILE_TEXT = "Введите имя файла с текстом для шифрования";
     public static final String ENTER_OUT_FILE_NAME = "Введите имя файла, в котором будет результат";
     public static final String ENTER_INPUT_DICTIONARY_TEXT_FILE = "Введите имя файла, в котором текст того же автора, для анализа";
-
     public static final String GOOD_BYE = "До свидания";
     public static final String IO_EXCEPTION_MSG = "Ошибка пути файла";
     public static final String ARGS_EXCEPTION_MSG = "Некорректно заданы аргументы";

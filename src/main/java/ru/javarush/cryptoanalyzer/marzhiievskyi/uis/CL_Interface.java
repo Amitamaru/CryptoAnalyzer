@@ -1,12 +1,7 @@
 package ru.javarush.cryptoanalyzer.marzhiievskyi.uis;
 
 import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
-import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;
-import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.ResultCode;
-import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.AppException;
-import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.ArgsException;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CL_Interface {
@@ -51,6 +46,15 @@ public class CL_Interface {
                     parameters[1] = console.next();
                     System.out.println(Strings.ENTER_OUT_FILE_NAME);
                     parameters[2] = console.next();
+                }
+                case 4 -> {
+                    parameters[0] = "textanalyzer";
+                    System.out.println(Strings.ENTER_ENCRYPTED_TEXT_FILE);
+                    parameters[1] = console.next();
+                    System.out.println(Strings.ENTER_OUT_FILE_NAME);
+                    parameters[2] = console.next();
+                    System.out.println(Strings.ENTER_INPUT_DICTIONARY_TEXT_FILE);
+                    parameters[3] = console.next();
                 }
             }
 
