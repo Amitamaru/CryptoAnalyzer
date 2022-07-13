@@ -51,8 +51,6 @@ public class CL_Interface {
                     parameters[1] = console.next();
                     System.out.println(Strings.ENTER_OUT_FILE_NAME);
                     parameters[2] = console.next();
-                    System.out.println(Strings.ENTER_INPUT_DICTIONARY_TEXT_FILE);
-                    parameters[3] = console.next();
                 }
             }
 
