@@ -8,11 +8,11 @@ import ru.javarush.cryptoanalyzer.marzhiievskyi.util.PathFinder;
 
 import java.io.*;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class TextAnalyzer implements Action {
-
 
 
     @Override
@@ -31,7 +31,37 @@ public class TextAnalyzer implements Action {
             Map<Character, Integer> mapOfEncryptedText = gettingCountsOfChars(bufferedReader);
 
             Map<Character, Integer> mapOfDictionaryTextChars = gettingCountsOfChars(bufferedReaderDictionary);
+            Map<Character, Character> alphabetToDecrypt = new HashMap<>();
 
+
+            System.out.println("Example Text");
+            int allCharsDict = 0;
+            for (var element : mapOfDictionaryTextChars.entrySet()) {
+                allCharsDict = allCharsDict + element.getValue();
+            }
+            for (var el :
+                    mapOfDictionaryTextChars.entrySet()) {
+                System.out.println(el.getKey() + " : " + el.getValue() );
+            }
+
+
+
+            System.out.println("Encrypted Text");
+            int allCharsEncrypted = 0;
+            for (var el : mapOfEncryptedText.entrySet()) {
+                allCharsEncrypted = allCharsEncrypted + el.getValue();
+            }
+            for (var el :
+                    mapOfEncryptedText.entrySet()) {
+                System.out.println(el.getKey() + " : " + el.getValue() );
+            }
+
+
+
+
+            for (var el: alphabetToDecrypt.entrySet()) {
+                System.out.println(el.getKey() + " = " + el.getValue());
+            }
 
 
 
@@ -41,20 +71,18 @@ public class TextAnalyzer implements Action {
             char spaceEncr = Collections.max(mapOfEncryptedText.entrySet(), Map.Entry.comparingByValue()).getKey(); // самый часты зашифрованный символ
 
 
-
-            try (BufferedReader fileReader = new BufferedReader(new FileReader(PathFinder.getRoot() + inputEncryptedFile));
-                 BufferedWriter fileWriter = new BufferedWriter(new FileWriter(PathFinder.getRoot() + decryptedTextFile))) {
-                while (fileReader.ready()) {
-                    char replChar = (char) fileReader.read();
-                    if (replChar == spaceEncr) {
-                        replChar = ' ';
-                    }
-                    fileWriter.write(replChar);
-                }
-                result = new Result(ResultCode.OK, "Расшифрование закончено. Проверте результат." +
-                        "\nПуть к результату: " + PathFinder.getRoot() + decryptedTextFile);
-            }
-
+//            try (BufferedReader fileReader = new BufferedReader(new FileReader(PathFinder.getRoot() + inputEncryptedFile));
+//                 BufferedWriter fileWriter = new BufferedWriter(new FileWriter(PathFinder.getRoot() + decryptedTextFile))) {
+//                while (fileReader.ready()) {
+//                    char replChar = (char) fileReader.read();
+//                    if (replChar == spaceEncr) {
+//                        replChar = ' ';
+//                    }
+//                    fileWriter.write(replChar);
+//                }
+//                result = new Result(ResultCode.OK, "Расшифрование закончено. Проверте результат." +
+//                        "\nПуть к результату: " + PathFinder.getRoot() + decryptedTextFile);
+//            }
 
 
         } catch (IOException e) {

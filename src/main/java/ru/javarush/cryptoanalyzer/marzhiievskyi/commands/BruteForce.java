@@ -43,7 +43,7 @@ public class BruteForce implements Action {
                 for (Character ch : oneOfListsChars) {
                     oneOfResultString.append(ch);
                 }
-                Pattern patter = Pattern.compile("(, но)|(, не)|(\\. [А-Я])");
+                Pattern patter = Pattern.compile("(\\. [А-Я])|(, но)|(, не)");
                 Matcher matcher = patter.matcher(oneOfResultString);
                 if (matcher.find()) {
                     bufferedWriter.write(String.valueOf(oneOfResultString));
