@@ -28,7 +28,6 @@ public class Encryption implements Action {
                 textCharsList.add((char) bufferedReader.read());
             }
 
-
             for (Character character : textCharsList) {
                 int charPos = Strings.ALPHABET_LIST.indexOf(character);
                 int keyValue = (charPos + keyShift) % Strings.ALPHABET_LIST.size();

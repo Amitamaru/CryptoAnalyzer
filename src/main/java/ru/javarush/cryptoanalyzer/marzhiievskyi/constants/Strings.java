@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Strings {
     //private static final String ENG_ALPHABET = "qwertyuiopasdfghjklzxcvbnm";
-    private static final String CYRILLIC_ALPHABET = "йцукенгшщзхъфывапролджэячсмитьбюёіїє";
+    private static final String CYRILLIC_ALPHABET = "йцукенгшщзхъфывапролджэячсмитьбюё";
     private static final String NUMERIC = "0123456789";
-    private static final String SYMBOLS = "-.,/?'\"[];:!() *";
+    private static final String SYMBOLS = "-.,?'\";:! ";
 
     private static final String ALL_SYMBOLS =
             CYRILLIC_ALPHABET + CYRILLIC_ALPHABET.toUpperCase() + NUMERIC + SYMBOLS;

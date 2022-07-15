@@ -10,7 +10,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Decryption implements Action{
+public class Decryption extends DecryptingKeyShift implements Action{
     @Override
     public Result execute(String[] parameters) {
         String inputTextFile = parameters[0];
@@ -28,13 +28,7 @@ public class Decryption implements Action{
             }
 
             for (Character character : textCharsList) {
-                int charPos = Strings.ALPHABET_LIST.indexOf(character);
-                int keyValue = (charPos - keyShift) % Strings.ALPHABET_LIST.size();
-                if (keyValue < 0) {
-                    keyValue = Strings.ALPHABET_LIST.size() + keyValue;
-                }
-                char replChar = Strings.ALPHABET_LIST.get(keyValue);
-                bufferedWriter.write(replChar);
+                bufferedWriter.write(decrypting(character, keyShift));
             }
 
             return new Result(ResultCode.OK, "Расшифрование завершено. \nПуть к результату: " + PathFinder.getRoot() + decryptedTextFile);
