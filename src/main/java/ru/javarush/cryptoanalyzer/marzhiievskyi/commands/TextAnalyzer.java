@@ -40,7 +40,7 @@ public class TextAnalyzer implements Action {
                 for (var elEncoded : sortedCharsByCountEncoded.entrySet()) {
                     double percentEncrypted = (double) elEncoded.getKey() / allCharsEncrypted * 100;
                     double between = percentDict / percentEncrypted;
-                    if (between > 0.9 && between <=1.1  ) {
+                    if (between > 0.9 && between <= 1.1) {
                         alphabetToDecrypt.put(el.getValue(), elEncoded.getValue());
                         break;
                     }

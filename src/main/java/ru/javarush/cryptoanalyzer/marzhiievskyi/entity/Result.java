@@ -1,5 +1,7 @@
 package ru.javarush.cryptoanalyzer.marzhiievskyi.entity;
 
+import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
+
 public class Result {
     private final ResultCode resultCode;
     private final String message;
@@ -19,8 +21,8 @@ public class Result {
 
     @Override
     public String toString() {
-        return "Результат работы программы: " +
-                "\nкод результата = " + resultCode +
-                "\nсообщение = " + message ;
+        return Strings.ANSI_YELLOW + "Результат работы программы: " +
+                "\nкод результата = "+Strings.ANSI_RESET  + resultCode +
+                Strings.ANSI_YELLOW + "\nсообщение = " +Strings.ANSI_RESET + message;
     }
 }

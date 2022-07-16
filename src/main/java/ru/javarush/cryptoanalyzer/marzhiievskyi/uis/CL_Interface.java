@@ -10,7 +10,7 @@ public class CL_Interface {
         String[] parameters = new String[4];
 
         Scanner console = new Scanner(System.in);
-        System.out.println(Strings.WELCOME_MESSAGE);
+        System.out.println(Strings.WELCOME_MESSAGE );
         System.out.println(Strings.CHOSE_COMMAND);
 
         String command = console.next();

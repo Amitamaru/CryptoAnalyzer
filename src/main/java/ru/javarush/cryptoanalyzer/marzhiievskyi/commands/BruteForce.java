@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BruteForce extends DecryptingKeyShift implements Action{
+public class BruteForce extends DecryptingKeyShift implements Action {
     @Override
     public Result execute(String[] parameters) {
 
@@ -31,7 +31,7 @@ public class BruteForce extends DecryptingKeyShift implements Action{
             while (keyShift < Strings.ALPHABET_LIST.size()) {
                 List<Character> oneOfListsChars = new ArrayList<>();
                 for (Character character : encryptedCharsList) {
-                    oneOfListsChars.add(decrypting(character, keyShift));
+                    oneOfListsChars.add(decryptingByKeyShift(character, keyShift));
                 }
                 StringBuilder oneOfResultString = new StringBuilder();
                 for (Character ch : oneOfListsChars) {

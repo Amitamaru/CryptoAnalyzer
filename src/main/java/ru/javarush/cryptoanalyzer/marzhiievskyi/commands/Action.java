@@ -4,5 +4,5 @@ import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;
 
 public interface Action {
 
-     Result execute(String[] parameters);
+    Result execute(String[] parameters);
 }
