@@ -42,7 +42,6 @@ public class TextAnalyzer implements Action {
                     double between = percentDict / percentEncrypted;
                     if (between > 0.9 && between <=1.1  ) {
                         alphabetToDecrypt.put(el.getValue(), elEncoded.getValue());
-                        System.out.println(between);
                         break;
                     }
                 }

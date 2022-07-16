@@ -4,6 +4,7 @@ import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.ResultCode;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.AppException;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.ArgsException;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.util.PathFinder;
 
 import java.io.*;

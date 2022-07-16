@@ -7,7 +7,6 @@ import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.AppException;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.ArgsException;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.KeyShiftException;
 
-
 public class MainController {
     public Result execute(String command, String[] parameters) {
         try {

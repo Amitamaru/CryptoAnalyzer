@@ -37,5 +37,5 @@ public class Strings {
     public static final String GOOD_BYE = "До свидания";
     public static final String IO_EXCEPTION_MSG = "Ошибка пути файла";
     public static final String ARGS_EXCEPTION_MSG = "Некорректно заданы аргументы";
-    public static final String KEY_EXCEPTION_MSG = "Значение ключа не может быть отрицательным";
+    public static final String KEY_EXCEPTION_MSG = "Значение ключа не может быть '0', или отрицательным";
 }

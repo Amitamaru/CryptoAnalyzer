@@ -20,7 +20,7 @@ public enum ActionsContainer {
     public static Action find(String command) {
         try {
             return ActionsContainer.valueOf(command.toUpperCase()).action;
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             throw new ArgsException(Strings.ARGS_EXCEPTION_MSG);
         }
     }
