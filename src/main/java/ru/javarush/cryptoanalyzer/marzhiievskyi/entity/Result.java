@@ -21,8 +21,9 @@ public class Result {
 
     @Override
     public String toString() {
-        return Strings.ANSI_YELLOW + "Результат работы программы: " +
-                "\nкод результата = "+Strings.ANSI_RESET  + resultCode +
-                Strings.ANSI_YELLOW + "\nсообщение = " +Strings.ANSI_RESET + message;
+        return Strings.ANSI_YELLOW + Strings.RESULT_OF_PROGRAM + Strings.CODE_OF_RESULT + Strings.ANSI_RESET
+                + resultCode
+                + Strings.ANSI_YELLOW + Strings.MESSAGE_WORD + Strings.ANSI_RESET
+                + message;
     }
 }

@@ -1,6 +1,7 @@
 package ru.javarush.cryptoanalyzer.marzhiievskyi.controller;
 
 import ru.javarush.cryptoanalyzer.marzhiievskyi.commands.Action;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.ResultCode;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.exeptions.AppException;
@@ -13,7 +14,7 @@ public class MainController {
             Action action = ActionsContainer.find(command);
             return action.execute(parameters);
         } catch (AppException | ArgsException | KeyShiftException exception) {
-            return new Result(ResultCode.ERROR, "Неудача. " + exception.getMessage());
+            return new Result(ResultCode.ERROR, Strings.MSG_EXCEPTION_FAILED + exception.getMessage());
         }
     }
 

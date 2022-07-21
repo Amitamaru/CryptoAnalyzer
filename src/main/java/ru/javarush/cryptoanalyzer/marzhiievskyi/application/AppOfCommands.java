@@ -1,4 +1,4 @@
-package ru.javarush.cryptoanalyzer.marzhiievskyi.commandSelector;
+package ru.javarush.cryptoanalyzer.marzhiievskyi.application;
 
 import ru.javarush.cryptoanalyzer.marzhiievskyi.controller.MainController;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;

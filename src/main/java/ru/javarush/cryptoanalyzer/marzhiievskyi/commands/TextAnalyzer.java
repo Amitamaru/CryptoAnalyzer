@@ -35,10 +35,11 @@ public class TextAnalyzer implements Action {
             int allCharsEncrypted = gettingCharsSumFromMap(mapOfEncryptedText);
 
             for (var el : sortedCharsByCountedDict.entrySet()) {
-                double percentDict = (double) el.getKey() / allCharsDict * 100;
+                final int ONE_HUNDRED_PERCENT = 100;
+                double percentDict = (double) el.getKey() / allCharsDict * ONE_HUNDRED_PERCENT;
 
                 for (var elEncoded : sortedCharsByCountEncoded.entrySet()) {
-                    double percentEncrypted = (double) elEncoded.getKey() / allCharsEncrypted * 100;
+                    double percentEncrypted = (double) elEncoded.getKey() / allCharsEncrypted * ONE_HUNDRED_PERCENT;
                     double between = percentDict / percentEncrypted;
                     if (between > 0.9 && between <= 1.1) {
                         alphabetToDecrypt.put(el.getValue(), elEncoded.getValue());
@@ -56,8 +57,10 @@ public class TextAnalyzer implements Action {
                         }
                     }
                 }
-                return new Result(ResultCode.OK, "Расшифрование закончено. Проверте результат." +
-                        "\nПуть к результату: " + PathFinder.getRoot() + decryptedTextFile);
+                return new Result(ResultCode.OK, Strings.MSG_DECRYPTION_BY_STATISTIC_ANALYZE_FINISHED
+                        + Strings.MSG_PATH_TO_THE_RESULT
+                        + PathFinder.getRoot()
+                        + decryptedTextFile);
             }
 
         } catch (IOException e) {

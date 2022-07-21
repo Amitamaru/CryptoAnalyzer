@@ -1,6 +1,6 @@
 package ru.javarush.cryptoanalyzer.marzhiievskyi.start;
 
-import ru.javarush.cryptoanalyzer.marzhiievskyi.commandSelector.AppOfCommands;
+import ru.javarush.cryptoanalyzer.marzhiievskyi.application.AppOfCommands;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.controller.MainController;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.entity.Result;
 import ru.javarush.cryptoanalyzer.marzhiievskyi.uis.CL_Interface;
@@ -13,7 +13,8 @@ public class Runner {
         Result result;
 
         if (args.length == 0) {
-            result = commandSelector.run(CL_Interface.gettingUserParametersWithCL());
+            CL_Interface commandLineInterface = new CL_Interface();
+            result = commandSelector.run(commandLineInterface.gettingUserParameters());
         } else {
             result = commandSelector.run(args);
         }

@@ -5,13 +5,15 @@ import ru.javarush.cryptoanalyzer.marzhiievskyi.constants.Strings;
 import java.util.Scanner;
 
 public class CL_Interface {
-    public static String[] gettingUserParametersWithCL() {
+    public CL_Interface() {
+        System.out.println(Strings.WELCOME_MESSAGE );
+        System.out.println(Strings.CHOSE_COMMAND);
+    }
+    public String[] gettingUserParameters() {
 
         String[] parameters = new String[4];
 
         Scanner console = new Scanner(System.in);
-        System.out.println(Strings.WELCOME_MESSAGE );
-        System.out.println(Strings.CHOSE_COMMAND);
 
         String command = console.next();
 
@@ -19,7 +21,7 @@ public class CL_Interface {
             System.out.println(Strings.GOOD_BYE);
             System.exit(0);
         }
-
+            //if there will be any wrong command or incorrect filename, then it will be exception msg
             switch (command) {
                 case "1" -> {
                     parameters[0] = "encrypt";

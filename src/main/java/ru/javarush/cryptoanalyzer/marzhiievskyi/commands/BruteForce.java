@@ -12,6 +12,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class BruteForce extends DecryptingKeyShift implements Action {
+
+
     @Override
     public Result execute(String[] parameters) {
 
@@ -20,7 +22,8 @@ public class BruteForce extends DecryptingKeyShift implements Action {
         int keyShift = 1;
 
         List<Character> encryptedCharsList = new ArrayList<>();
-        Result result = new Result(ResultCode.ERROR, "Расшифрование закончено неудачно");
+
+        Result result = new Result(ResultCode.ERROR, Strings.MSG_DECRYPTION_DONE_FAILED);
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(PathFinder.getRoot() + inputTextFile));
              BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(PathFinder.getRoot() + decryptedTextFile))) {
@@ -37,12 +40,15 @@ public class BruteForce extends DecryptingKeyShift implements Action {
                 for (Character ch : oneOfListsChars) {
                     oneOfResultString.append(ch);
                 }
-                Pattern patter = Pattern.compile("(\\. [А-Я])|(, но)|(, не)");
+                Pattern patter = Pattern.compile(Strings.REGEX_FINDER_PATTERN);
                 Matcher matcher = patter.matcher(oneOfResultString);
                 if (matcher.find()) {
                     bufferedWriter.write(String.valueOf(oneOfResultString));
-                    result = new Result(ResultCode.OK, "Расшифрование закончено удачно. Ключ шифрования должен быть: " + keyShift +
-                            "\nПуть к результату: " + PathFinder.getRoot() + decryptedTextFile);
+                    result = new Result(ResultCode.OK, Strings.MSG_DECRYPTION_BRUTE_FORCE_DONE_WELL
+                            + keyShift
+                            + Strings.MSG_PATH_TO_THE_RESULT
+                            + PathFinder.getRoot()
+                            + decryptedTextFile);
                     break;
                 }
                 keyShift++;

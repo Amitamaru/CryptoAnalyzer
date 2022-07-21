@@ -19,7 +19,6 @@ public class Encryption implements Action {
         String inputTextFile = parameters[0];
         String encryptedTextFile = parameters[1];
 
-
         List<Character> textCharsList = new ArrayList<>();
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(PathFinder.getRoot() + inputTextFile));
@@ -38,8 +37,10 @@ public class Encryption implements Action {
                 bufferedWriter.write(replChar);
             }
 
-            return new Result(ResultCode.OK, "Шифрование завершено. \nПуть к результату: " + PathFinder.getRoot() + encryptedTextFile);
-
+            return new Result(ResultCode.OK, Strings.MSG_ENCRYPTION_DONE_WELL
+                    + Strings.MSG_PATH_TO_THE_RESULT
+                    + PathFinder.getRoot()
+                    + encryptedTextFile);
 
         } catch (IOException e) {
             throw new AppException(Strings.IO_EXCEPTION_MSG, e);

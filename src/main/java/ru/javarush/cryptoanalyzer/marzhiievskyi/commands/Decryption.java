@@ -31,8 +31,10 @@ public class Decryption extends DecryptingKeyShift implements Action {
                 bufferedWriter.write(decryptingByKeyShift(character, keyShift));
             }
 
-            return new Result(ResultCode.OK, "Расшифрование завершено. \nПуть к результату: " + PathFinder.getRoot() + decryptedTextFile);
-
+            return new Result(ResultCode.OK, Strings.MSG_DECRYPTION_DONE_WELL
+                    + Strings.MSG_PATH_TO_THE_RESULT
+                    + PathFinder.getRoot()
+                    + decryptedTextFile);
 
         } catch (IOException e) {
             throw new AppException(Strings.IO_EXCEPTION_MSG, e);
