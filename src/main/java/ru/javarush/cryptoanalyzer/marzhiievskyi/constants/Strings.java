@@ -26,6 +26,7 @@ public class Strings {
             ALPHABET_LIST.add(ch);
         }
     }
+    //regex pattern for ru dictionary
     public static final String REGEX_FINDER_PATTERN = "(\\. [А-Я])|(, но)|(, не)";
 
     //dialog msg's for program
