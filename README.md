@@ -1,10 +1,8 @@
 # CryptoAnalyzer
+To start crypto analyzer run Runner
 
-Чтобы запустить CryptoAnalyzer запустите Runner
-задать параметры для работы можно 2 способами:
-1) запустить программу с параметрами
-2) запустить программу без параметров и следовать инструкциям в командной строке
+You can start program whith two variants:
+1) start with arguments
+2) start without arguments, then follow instruction in command line
 
-Входные материалы (текстовые файлы) следует размещать во внутреннем каталоге 'text'. Там же будут сохраняться и результаты шифровки/дешифровки
-
-П.С. Частотный анализ текста работает не точно
+Incoming files (.text files) shuld be in 'text' directory. All results of encryption and decryption will be located in 'text' directory
